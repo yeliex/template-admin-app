@@ -12,13 +12,13 @@ import createUsePromise from '@/libs/createUsePromise';
 import Layout from '@/pages/layout';
 
 interface IndexRouteObject extends Omit<RemixIndexRouteObject, 'lazy' | 'Component'> {
-    lazy?: LazyRouteFunction<IndexRouteObject>;
+    lazy?: LazyRouteFunction<RemixRouteObject | RouteObject>;
     default?: RemixIndexRouteObject['Component'];
     root?: true;
 }
 
 interface NonIndexRouteObject extends Omit<RemixNonIndexRouteObject, 'lazy' | 'Component' | 'children'> {
-    lazy?: LazyRouteFunction<NonIndexRouteObject>;
+    lazy?: LazyRouteFunction<RemixRouteObject | RouteObject>;
     default?: RemixNonIndexRouteObject['Component'];
     children?: RouteObject[];
     root?: true;
@@ -34,20 +34,26 @@ const RouteModules = import.meta.glob<RouteModule>('./pages/**/route.{ts,tsx}', 
 });
 
 const transformToRemix = (route: RouteObject) => {
-    const r = {...route} as RemixRouteObject;
+    const r = { ...route } as RemixRouteObject;
 
     if (route.lazy) {
-        r.lazy = () => route.lazy!().then((module: any) => {
+        (r as any).lazy = async () => {
+            const m: RouteObject | RemixRouteObject = await route.lazy!();
+
+            if (!('default' in m)) {
+                return m as RemixRouteObject;
+            }
+
             return {
-                ...module,
+                ...m,
                 default: undefined,
-                Component: module.Component || module.default,
-            } as RouteObject;
-        });
+                Component: m.default,
+            } as RemixRouteObject;
+        };
     }
 
     if (route.children) {
-        const children: RemixRouteObject[] = [];
+        const children: RouteObject[] = [];
 
         route.children.forEach((child) => {
             const route = transformToRemix(child);
@@ -72,7 +78,7 @@ export const createRouter = async () => {
     ];
 
     Object.keys(RouteModules).forEach((key) => {
-        const routeModule = RouteModules[key];
+        const routeModule = RouteModules[key]!;
 
         const routeModules = Array.isArray(routeModule) ? routeModule : [routeModule];
 

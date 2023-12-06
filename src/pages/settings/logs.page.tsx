@@ -2,7 +2,6 @@ import useSWRPagination from '@/hooks/usePagination';
 import { Space, Table, Tag, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import { memo } from 'react';
-import { mockFetcher } from '../../libs/fetch';
 
 const mock = {
     list: [
@@ -58,7 +57,7 @@ const Page = memo(() => {
                         title: '状态',
                         dataIndex: 'result',
                         width: 120,
-                        render: (value) => {
+                        render: () => {
                             return (
                                 <Tag color="green">
                                     正常
@@ -70,7 +69,7 @@ const Page = memo(() => {
                         title: '操作类型',
                         dataIndex: 'operation',
                         width: 120,
-                        render: (value) => {
+                        render: () => {
                             return '登录';
                         },
                     },

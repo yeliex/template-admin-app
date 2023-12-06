@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "extends": ["@tsconfig/strictest/tsconfig.json"],
+  "compilerOptions": {
+    "noEmit": true,
+    "isolatedModules": true,
+    "importsNotUsedAsValues": "error",
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+    "useDefineForClassFields": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "allowImportingTsExtensions": true,
+    "exactOptionalPropertyTypes": false,
+    "moduleResolution": "bundler"
+  },
+  "include": []
+}

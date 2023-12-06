@@ -1,5 +1,5 @@
 import { Descriptions, Typography } from 'antd';
-import { type CreateUserResponse } from './UserEditor';
+import type { CreateUserResponse } from './UserEditor';
 
 type IProps = CreateUserResponse;
 

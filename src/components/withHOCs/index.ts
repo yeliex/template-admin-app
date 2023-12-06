@@ -1,4 +1,4 @@
-import { type ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 const withHOCs = <P = {}>(hocs: Array<(Component: ComponentType<P>) => ComponentType<P>>) =>
     (Component: ComponentType<P>): ComponentType<P> => {

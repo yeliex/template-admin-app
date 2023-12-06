@@ -1,11 +1,11 @@
 import { useUser } from '@/data/user';
 import { mockFetcher, serializeResponse } from '@/libs/fetch';
 import changePassword from './ChangePassword';
-import editUser, { CreateUserResponse } from './UserEditor';
+import editUser, { type CreateUserResponse } from './UserEditor';
 import UserPasswordResultContent from './UserPasswordResultContent';
 import { DownOutlined } from '@ant-design/icons';
 import { App, Button, Dropdown, notification, Popconfirm, Space, Table, Tag, Typography } from 'antd';
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import useSWR from 'swr';
 
@@ -175,7 +175,7 @@ const Page = memo(() => {
                         title: '状态',
                         dataIndex: 'status',
                         width: 80,
-                        render: (value, record) => {
+                        render: () => {
                             return (
                                 <Tag color="success">正常</Tag>
                             );
@@ -186,7 +186,7 @@ const Page = memo(() => {
                         key: 'action',
                         dataIndex: 'id',
                         width: 120,
-                        render: (id, record) => {
+                        render: (id) => {
                             return (
                                 <Space>
                                     <Link to={`/settings/logs?userId=${id}`}>

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
+import tailwind from 'tailwindcss';
 
 const chunks = {
     react: [
@@ -68,7 +69,6 @@ export default defineConfig({
         },
     },
     server: {
-        port: 23402,
         host: true,
         strictPort: true,
     },
@@ -78,7 +78,7 @@ export default defineConfig({
         },
         postcss: {
             plugins: [
-                require('tailwindcss')(),
+                tailwind(),
             ],
         },
     },

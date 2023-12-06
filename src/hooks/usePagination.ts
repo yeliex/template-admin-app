@@ -1,10 +1,10 @@
 import { swrFetcher } from '@/libs/fetch';
-import { type TablePaginationConfig } from 'antd';
-import { type FilterValue, type SorterResult } from 'antd/es/table/interface';
+import type { TablePaginationConfig } from 'antd';
+import type { FilterValue, SorterResult } from 'antd/es/table/interface';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import useSWR, { type SWRConfiguration } from 'swr';
-import { type Fetcher } from 'swr/_internal';
+import type { Fetcher } from 'swr/_internal';
 
 const usePagination = () => {
     const [searchParams, setSearchParams] = useSearchParams();

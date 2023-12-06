@@ -1,27 +1,7 @@
 {
   "compileOnSave": false,
+  "extends": ["./tsconfig.base.json", "@tsconfig/vite-react/tsconfig.json"],
   "compilerOptions": {
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
-    "allowJs": false,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": false,
-    "declaration": false,
-    "jsx": "preserve",
-    "strict": true,
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "incremental": true,
-    "outDir": "./dist",
-    "sourceRoot": "./src",
-    "baseUrl": "./",
     "types": [
       "vite/client"
     ],
@@ -33,9 +13,7 @@
     "src/**/*.tsx",
     "src/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["vite.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

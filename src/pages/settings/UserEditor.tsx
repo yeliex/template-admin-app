@@ -4,7 +4,7 @@ import UserPasswordResultContent from '@/pages/settings/UserPasswordResultConten
 import { Form, Input, Modal, notification } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { type AdminUser } from '../../data/user';
+import type { AdminUser } from '../../data/user';
 
 interface IProps {
     onClose: () => void;

@@ -1,7 +1,5 @@
 import {
-    DashboardOutlined, FundProjectionScreenOutlined, NodeIndexOutlined,
-    PartitionOutlined,
-    ProfileOutlined, ReconciliationOutlined,
+    DashboardOutlined,
     SettingOutlined,
 } from '@ant-design/icons';
 import { ItemType } from 'antd/es/menu/hooks/useItems';

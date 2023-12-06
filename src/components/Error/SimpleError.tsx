@@ -1,5 +1,5 @@
 import { Alert, Button } from 'antd';
-import { type PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { DEFAULT_TITLE } from './index';
 import type { FallbackProps } from 'react-error-boundary';
 

@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 import type { FieldElement } from 'react-hook-form';
-import { ControllerRenderProps } from 'react-hook-form/dist/types/controller';
+import type { ControllerRenderProps } from 'react-hook-form/dist/types/controller';
 
 export const trimWhitespace = (value: string | undefined) => value?.trim();
 
